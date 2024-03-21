@@ -1,22 +1,22 @@
 class Solution:
     def longestBeautifulSubstring(self, word: str) -> int:
         
-        vowels = {'a', 'e', 'i', 'o', 'u'}
-        longest = 0
+        vowel_set = {'a', 'e', 'i', 'o', 'u'}
+        output = 0
         window = []
 
-        for char in word:
+        for e in word:
             if not window:
-                window.append(char)
-            elif char >= window[-1]:
-                window.append(char)
+                window.append(e)
+            elif e >= window[-1]:
+                window.append(e)
             else:
-                if set(window) == vowels:
-                    longest = max(longest, len(window))
-                window = [char]
+                if set(window) == vowel_set:
+                    output = max(output, len(window))
+                window = [e]
 
-        if set(window) == vowels:
-            longest = max(longest, len(window))
-
-        return longest
+        if set(window) == vowel_set:
+            output = max(output, len(window))
+            
+        return output
 
