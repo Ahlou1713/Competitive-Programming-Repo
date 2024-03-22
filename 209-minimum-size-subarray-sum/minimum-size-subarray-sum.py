@@ -16,7 +16,7 @@ class Solution:
 
             right+=1
 
-        if(sum(nums)<target):
+        if(sum(nums) < target):
             return 0
         else:
             return min_output
