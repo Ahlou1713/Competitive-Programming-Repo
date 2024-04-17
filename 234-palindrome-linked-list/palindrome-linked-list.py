@@ -18,13 +18,17 @@ class Solution:
                 node = next_node
             return prev
 
-        # Function to find the middle of the linked list
+        # Function to find the middle of the linked list without using slow and fast pointers
         def findMiddle(node):
-            slow = fast = node
-            while fast and fast.next:
-                slow = slow.next
-                fast = fast.next.next
-            return slow
+            count = 0
+            curr = node
+            while curr:
+                count += 1
+                curr = curr.next
+            mid = count // 2
+            for _ in range(mid):
+                node = node.next
+            return node
 
         # Find the middle of the linked list
         mid = findMiddle(head)
