@@ -18,7 +18,7 @@ class Solution:
                 node = next_node
             return prev
 
-        # Function to find the middle of the linked list without using slow and fast pointers
+        # Function to find the middle of the linked list
         def findMiddle(node):
             count = 0
             curr = node
