@@ -18,7 +18,6 @@ class Solution:
                 dic[curr.val] += 1
             else:
                 dic[curr.val] = 1
-            prev = curr
             curr = curr.next
 
         curr = head
