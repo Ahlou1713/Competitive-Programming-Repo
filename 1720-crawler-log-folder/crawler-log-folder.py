@@ -6,8 +6,7 @@ class Solution:
                 if stack:
                     stack.pop()
             elif log == './':
-                stack.append(log)
-                stack.pop()
+                continue
             else:
                 stack.append(log)
 
