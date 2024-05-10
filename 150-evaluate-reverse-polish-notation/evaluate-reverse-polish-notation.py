@@ -17,8 +17,7 @@ class Solution:
                 elif token == '*':
                     result = operand1 * operand2
                 elif token == '/':
-                    # Handle division by zero
                     result = int(operand1 / operand2)
                 stack.append(result)
 
-        return stack.pop()  # Final result should be at the top of the stack
+        return stack.pop()
