@@ -1,28 +1,24 @@
 class Solution:
     def findRadius(self, houses: List[int], heaters: List[int]) -> int:
-        
-        def findHeater(house: int, heaters: List[int]):
-            left = 0
-            right = len(heaters) - 1
-            radius = float('+inf')
-            while left <= right:
-                mid = left + (right-left) // 2
-                radius = min(radius, abs(house-heaters[mid]))
-
-                if house < heaters[mid]:
-                    right = mid - 1
-                elif house > heaters[mid]:
-                    left = mid + 1
-                else:
-                    break
-
-            return radius
-
-        radius = 0
+        houses.sort()
         heaters.sort()
-        for house in houses:
-            radius = max(radius, findHeater(house, heaters))
-
-        return radius
-
-        # Shoutout to Fabrice for explaining this concept to me!
+        
+        def can_cover_all(radius):
+            i, j = 0, 0
+            while i < len(houses) and j < len(heaters):
+                if abs(houses[i] - heaters[j]) <= radius:
+                    i += 1
+                else:
+                    j += 1
+            return i == len(houses)
+        
+        left, right = 0, max(houses[-1], heaters[-1])
+        
+        while left < right:
+            mid = left + (right - left) // 2
+            if can_cover_all(mid):
+                right = mid
+            else:
+                left = mid + 1
+        
+        return left
