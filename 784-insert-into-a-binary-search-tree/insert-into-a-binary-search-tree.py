@@ -14,6 +14,6 @@ class Solution:
                 return root
             if data > root.val:
                 root.right = insert(root.right, data)
-            return root
+                return root
 
         return insert(root, val)
