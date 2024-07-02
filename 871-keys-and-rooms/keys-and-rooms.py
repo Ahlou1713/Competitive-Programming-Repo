@@ -10,7 +10,7 @@ class Solution:
         print(graph)
         visited = []
         queue = deque([0])
-        save = [0]
+        save = set([0])
 
         while queue:
             node = queue.popleft()
@@ -21,7 +21,7 @@ class Solution:
                 for neighbour in graph[node]:
                     queue.append(neighbour)
                     if neighbour != node:
-                        save.append(neighbour)
+                        save.add(neighbour)
 
         for key in range(n):
             if key not in save:
