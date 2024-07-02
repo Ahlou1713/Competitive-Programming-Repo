@@ -19,8 +19,8 @@ class Solution:
                 visited.append(node)
 
                 for neighbour in graph[node]:
+                    queue.append(neighbour)
                     if neighbour != node:
-                        queue.append(neighbour)
                         save.append(neighbour)
 
         for key in range(n):
