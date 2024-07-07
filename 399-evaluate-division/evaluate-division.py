@@ -19,9 +19,9 @@ class Solution:
             if node == end: 
                 return 1.0
             
-            for neighbor, weight in graph[node]:
-                if neighbor not in visited:
-                    tmp = dfs(neighbor, end)
+            for neighbour, weight in graph[node]:
+                if neighbour not in visited:
+                    tmp = dfs(neighbour, end)
                     if tmp != -1.0 :
                         return weight * tmp
             
