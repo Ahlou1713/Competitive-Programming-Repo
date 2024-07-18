@@ -4,7 +4,7 @@ class Solution:
         self.minUnfairness = sum(cookies)
        
         def backtrack(i, bucket):
-            if i >= len(cookies):
+            if i == len(cookies):
                 self.minUnfairness = min(self.minUnfairness, max(bucket))
                 return
            
