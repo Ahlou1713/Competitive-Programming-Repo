@@ -1,11 +1,12 @@
 class Solution:
     def distributeCookies(self, cookies: List[int], k: int) -> int:
         bucket = [0] * k
-        self.minUnfairness = sum(cookies)
+        minUnfairness = sum(cookies)
        
         def backtrack(i, bucket):
+            nonlocal minUnfairness
             if i == len(cookies):
-                self.minUnfairness = min(self.minUnfairness, max(bucket))
+                minUnfairness = min(minUnfairness, max(bucket))
                 return
            
             for j in range(k):
@@ -16,4 +17,4 @@ class Solution:
                     break
        
         backtrack(0, bucket)
-        return self.minUnfairness
+        return minUnfairness
